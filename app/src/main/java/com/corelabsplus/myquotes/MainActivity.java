@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    //FUNCTION TO MAKE TOAST
+
     public void makeToast(String message, int length){
         Toast.makeText(context, message, length).show();
     }
