@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MyQuotes</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quaerat distinctio nostrum maxime inventore consectetur commodi expedita, nesciunt odio explicabo dignissimos illum aperiam quam ea ducimus, quae similique eos autem.</string>
+    <string name="welcome">Today quote </string>
 </resources>

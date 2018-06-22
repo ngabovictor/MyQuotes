@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerview) RecyclerView recyclerView;
     @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.loading) RelativeLayout loadingIndicator;
 
     private Context context;
     private List<Quote> quotes = new ArrayList<>();
@@ -57,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
+                loadingIndicator.setVisibility(View.INVISIBLE);
+
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray quotesArray = jsonObject.getJSONArray("quotes");
@@ -78,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    makeToast(error.getMessage(), 1);
+                    //makeToast(error.getMessage(), 1);
+                    generateRandomQuotes();
                 }
             }
         );
