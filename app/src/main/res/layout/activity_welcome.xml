@@ -10,7 +10,7 @@
         android:id="@+id/dailyQuote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/welcome"
+        android:textColor="@color/colorWhite"
         android:padding="@dimen/margin_10"
         android:layout_centerInParent="true"
         android:gravity="center"
