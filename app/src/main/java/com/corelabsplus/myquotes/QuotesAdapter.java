@@ -6,9 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder> {
 
@@ -38,6 +42,24 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
 
         holder.quoteView.setText("\"" + quoteQ + "\"");
         holder.authorView.setText("~" + author);
+
+        //HANDLING COPY AND SHARE
+
+        holder.copyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Do copy here
+                // Remember to use .toString method of the Quote class
+            }
+        });
+
+        holder.shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Do share here
+                // Remember to use .toString method of the Quote class
+            }
+        });
     }
 
     @Override
@@ -47,13 +69,15 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView quoteView, authorView;
+        @BindView(R.id.quote_view) TextView quoteView;
+        @BindView(R.id.author_view) TextView authorView;
+        @BindView(R.id.share_btn) ImageView shareBtn;
+        @BindView(R.id.copy_btn) ImageView copyBtn;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
 
-            quoteView = (TextView) itemView.findViewById(R.id.quote_view);
-            authorView = (TextView) itemView.findViewById(R.id.author_view);
         }
     }
 }

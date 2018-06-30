@@ -24,4 +24,11 @@ public class Quote {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    public String toString(){
+
+        String plainQuote = "\"" + quote + "\"" + "\n" + "~" + author;
+
+        return plainQuote;
+    }
 }
